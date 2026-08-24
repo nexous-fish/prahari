@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — the app uses BrowserRouter, so every client-side route
+# (/map, /engine, /cases/:id, …) must be served index.html instead of 404ing
+# on a deep link or page refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
